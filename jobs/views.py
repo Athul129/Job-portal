@@ -403,13 +403,13 @@ class Comments(APIView):
             }, status=status.HTTP_404_NOT_FOUND)
 
         # ✅ Check if the logged-in user is the owner of the post
-        if post.user != request.user:
-            return Response({
-                "Success": False,
-                "message": "You are not authorized to view comments for this post",
-                "data": None,
-                "errors": None
-            }, status=status.HTTP_403_FORBIDDEN)
+        # if post.user != request.user:
+        #     return Response({
+        #         "Success": False,
+        #         "message": "You are not authorized to view comments for this post",
+        #         "data": None,
+        #         "errors": None
+        #     }, status=status.HTTP_403_FORBIDDEN)
 
         # ✅ Fetch comments only if authorized
         comments = Comment.objects.filter(post_id=id).order_by('-created_at')

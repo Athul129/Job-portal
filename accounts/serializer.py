@@ -153,7 +153,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobSeekerProfile
         fields = ["id","full_name", "email", "phone_number",
-                  "address", "skills", "experience", "about_me","role"]
+                  "address", "skills", "experience", "about_me","role","profile","cover_image"]
         read_only_fields = ["email","id","role"]
 
     def update(self, instance, validated_data):

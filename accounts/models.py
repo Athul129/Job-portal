@@ -77,6 +77,8 @@ class JobSeekerProfile(models.Model):
     skills = models.TextField(blank=True, null=True)
     experience = models.TextField(blank=True, null=True)
     about_me = models.TextField(blank=True, null=True)
+    profile=models.ImageField(upload_to="profiles/", blank=True, null=True)
+    cover_image=models.ImageField(upload_to="cover_images/", blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.email} Profile"

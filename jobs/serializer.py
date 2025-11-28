@@ -19,11 +19,13 @@ class PostImageSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     images = PostImageSerializer(many=True, read_only=True)
     user=serializers.CharField(source='user.full_name', read_only=True)
+    comments_count=serializers.IntegerField(source='comments.count', read_only=True)
+    likes_count=serializers.IntegerField(source='likes.count', read_only=True)
     
     class Meta:
         model = Post
-        fields = ['id', 'user', 'content', 'created_at', 'images']
-        read_only_fields = ['user','created_at','images']
+        fields = ['id', 'user', 'content', 'created_at', 'images', 'comments_count', 'likes_count']
+        read_only_fields = ['user','created_at','images', 'comments_count', 'likes_count']
 
 
     
